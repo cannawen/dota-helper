@@ -10,4 +10,5 @@ import Foundation
 
 enum ImageName: String {
     case observerWard = "observer_ward"
+    case sentryWard = "sentry_ward"
 }
