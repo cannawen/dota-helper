@@ -6,22 +6,22 @@
 //  Copyright © 2016 Canna Wen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class GameState {
-    private var wards : Array<Ward>
-    private var currentTime : TimeInterval
+    private(set) public var wards : Array<Ward>
+    private(set) public var currentTime : TimeInterval
     
     public init() {
         wards = []
         currentTime = 0
     }
     
-    public func addWard(type: WardType) {
-        wards.append(Ward(type: type, creationTime: currentTime))
+    public func addWard(type: WardType, location: CGPoint) {
+        wards.append(Ward(type: type, creationTime: currentTime, location: location))
     }
     
-    public func incrementGameState() {
+    public func advanceTime() {
         func removeExpiredWards() {
             wards = wards.filter { $0.isValid(currentTime: currentTime) }
         }

@@ -6,15 +6,17 @@
 //  Copyright © 2016 Canna Wen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Ward {
     var type : WardType
     var creationTime : TimeInterval
+    var location : CGPoint
     
-    init(type wardType: WardType, creationTime time: TimeInterval) {
-        type = wardType
-        creationTime = time
+    init(type: WardType, creationTime: TimeInterval, location: CGPoint) {
+        self.type = type
+        self.creationTime = creationTime
+        self.location = location
     }
 }
 

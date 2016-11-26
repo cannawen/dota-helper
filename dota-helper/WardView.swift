@@ -8,47 +8,37 @@
 
 import UIKit
 
-protocol WardViewDelegate {
-    func wardExpired(wardView: WardView)
-}
 
 class WardView: UIView {
 
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var wardImageView: UIImageView!
     
-    var secondsRemaining : TimeInterval!
-    var timer : Timer!
-    var dateFormatter = DateFormatter()
-    var delegate : WardViewDelegate!
-    
-    static func newFromNib(delegate: WardViewDelegate, type: WardType) -> WardView {
+    static func new(ward: Ward, currentTime: TimeInterval) -> WardView {
         let wardView = Bundle.main.loadNibNamed("WardView", owner: self, options: nil)![0] as! WardView
-        return wardView.setup(delegate: delegate, type: type)
+        return wardView.setup(ward: ward, currentTime: currentTime);
     }
     
-    func setup(delegate: WardViewDelegate, type: WardType) -> WardView {
-        self.delegate = delegate
+    private func setup(ward: Ward, currentTime: TimeInterval) -> WardView {
+        func timeRemainingString() -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "m:ss"
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            let timeRemaining = Date(timeIntervalSince1970: ward.timeRemaining(currentTime: currentTime))
+            return dateFormatter.string(from: timeRemaining)
+        }
         
-        self.dateFormatter.dateFormat = "m:ss"
-        self.dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-        
-        self.secondsRemaining = type.lifespan()
-        self.wardImageView.image = UIImage(named: type.imageName())
-        
-        updateCounter()
+        center = ward.location
+        wardImageView.image = UIImage(named: ward.type.imageName())
+        countdownLabel.text = timeRemainingString()
         
         return self
     }
-    
-    func updateCounter() {
-        if secondsRemaining < 0 {
-            delegate.wardExpired(wardView: self)
-        } else {
-            countdownLabel.text = dateFormatter.string(from: Date(timeIntervalSince1970: secondsRemaining))
-        }
-        secondsRemaining = secondsRemaining - 1;
+}
+
+private extension Ward {
+    func timeRemaining(currentTime: TimeInterval) -> TimeInterval {
+        let age = currentTime - creationTime
+        return type.lifespan() - age
     }
-    
 }

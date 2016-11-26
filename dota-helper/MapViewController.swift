@@ -14,30 +14,33 @@ class MapViewController: UIViewController {
     @IBOutlet var singleTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
     
+    let gameState = GameState()
+    var timer : Timer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         singleTapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateGameState), userInfo: nil, repeats: true)
+    }
+    
+    func updateGameState() {
+        gameState.advanceTime()
+        redrawGameState()
     }
     
     @IBAction func mapTapped(_ sender: UITapGestureRecognizer) {
-        let wardView = WardView.newFromNib(delegate: self, type: .observer)
-        addToMap(gesture: sender, wardView: wardView)
+        gameState.addWard(type: .observer, location: sender.location(in: mapImageView))
+        redrawGameState()
     }
     
     @IBAction func mapDoubleTapped(_ sender: UITapGestureRecognizer) {
-        let wardView = WardView.newFromNib(delegate: self, type: .sentry)
-        addToMap(gesture: sender, wardView: wardView)
+        gameState.addWard(type: .sentry, location: sender.location(in: mapImageView))
+        redrawGameState()
     }
     
-    func addToMap(gesture: UITapGestureRecognizer, wardView: WardView) {
-        let touchPoint = gesture.location(in: mapImageView)
-        wardView.center = touchPoint
-        mapImageView.addSubview(wardView)
-    }
-}
-
-extension MapViewController: WardViewDelegate {
-    func wardExpired(wardView: WardView) {
-        wardView.removeFromSuperview()
+    private func redrawGameState() {
+        mapImageView.subviews.forEach { $0.removeFromSuperview() }
+        let wardViews = gameState.wards.map { WardView.new(ward: $0, currentTime: gameState.currentTime) }
+        wardViews.forEach { mapImageView.addSubview($0) }
     }
 }
