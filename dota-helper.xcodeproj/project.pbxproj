@@ -13,6 +13,8 @@
 		B0E4D8381DEA0654005C80FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E4D8371DEA0654005C80FE /* Assets.xcassets */; };
 		B0E4D83B1DEA0654005C80FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E4D8391DEA0654005C80FE /* LaunchScreen.storyboard */; };
 		B0E4D8461DEA0654005C80FE /* dota_helperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4D8451DEA0654005C80FE /* dota_helperTests.swift */; };
+		B0E4D8511DEA0A75005C80FE /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4D8501DEA0A75005C80FE /* ImageName.swift */; };
+		B0E4D8531DEA0CF6005C80FE /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4D8521DEA0CF6005C80FE /* ImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		B0E4D8411DEA0654005C80FE /* dota-helperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dota-helperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E4D8451DEA0654005C80FE /* dota_helperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dota_helperTests.swift; sourceTree = "<group>"; };
 		B0E4D8471DEA0654005C80FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0E4D8501DEA0A75005C80FE /* ImageName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
+		B0E4D8521DEA0CF6005C80FE /* ImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				B0E4D8371DEA0654005C80FE /* Assets.xcassets */,
 				B0E4D8391DEA0654005C80FE /* LaunchScreen.storyboard */,
 				B0E4D83C1DEA0654005C80FE /* Info.plist */,
+				B0E4D8501DEA0A75005C80FE /* ImageName.swift */,
+				B0E4D8521DEA0CF6005C80FE /* ImageExtension.swift */,
 			);
 			path = "dota-helper";
 			sourceTree = "<group>";
@@ -199,8 +205,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E4D8511DEA0A75005C80FE /* ImageName.swift in Sources */,
 				B0E4D8331DEA0653005C80FE /* MapViewController.swift in Sources */,
 				B0E4D8311DEA0653005C80FE /* AppDelegate.swift in Sources */,
+				B0E4D8531DEA0CF6005C80FE /* ImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

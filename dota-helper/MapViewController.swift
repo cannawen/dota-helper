@@ -15,9 +15,9 @@ class MapViewController: UIViewController {
     @IBAction func mapTapped(_ sender: UITapGestureRecognizer) {
         let ward = UIImage(named: "observer_ward")!
         let touchPoint = sender.location(in: mapImageView)
-        let imageView = UIImageView(image: ward)
-        imageView.center = touchPoint
-        mapImageView.addSubview(imageView)
+        let wardImageView = UIImageView(image: ward)
+        wardImageView.center = touchPoint
+        mapImageView.addSubview(wardImageView)
     }
 }
 
