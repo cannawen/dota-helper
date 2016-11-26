@@ -24,11 +24,10 @@ class WardView: UIView {
     
     static func newFromNib(delegate: WardViewDelegate, type: WardType) -> WardView {
         let wardView = Bundle.main.loadNibNamed("WardView", owner: self, options: nil)![0] as! WardView
-        wardView.setup(delegate: delegate, type: type)
-        return wardView
+        return wardView.setup(delegate: delegate, type: type)
     }
     
-    func setup(delegate: WardViewDelegate, type: WardType) {
+    func setup(delegate: WardViewDelegate, type: WardType) -> WardView {
         self.delegate = delegate
         
         self.dateFormatter.dateFormat = "m:ss"
@@ -39,6 +38,8 @@ class WardView: UIView {
         self.wardImageView.image = UIImage(named: type.imageName())
         
         updateCounter()
+        
+        return self
     }
     
     func updateCounter() {
