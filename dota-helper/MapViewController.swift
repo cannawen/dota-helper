@@ -11,6 +11,13 @@ import UIKit
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapImageView: UIImageView!
+    @IBOutlet var singleTapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        singleTapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
+    }
     
     @IBAction func mapTapped(_ sender: UITapGestureRecognizer) {
         let wardView = WardView.newFromNib(delegate: self, type: .observer)

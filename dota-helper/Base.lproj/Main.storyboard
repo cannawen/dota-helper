@@ -39,7 +39,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="doubleTapGestureRecognizer" destination="lfI-nF-XUj" id="Xvf-cH-sw0"/>
                         <outlet property="mapImageView" destination="Jdg-eb-8hT" id="mJf-st-wgs"/>
+                        <outlet property="singleTapGestureRecognizer" destination="uuG-m7-tTu" id="3pP-dx-leG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -49,6 +49,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="countdownLabel" destination="rvg-zO-NcZ" id="nRI-Dw-KoT"/>
+                <outlet property="wardImageView" destination="CNW-GT-R9o" id="h2a-D5-Vlw"/>
             </connections>
             <point key="canvasLocation" x="-133" y="-111"/>
         </view>
