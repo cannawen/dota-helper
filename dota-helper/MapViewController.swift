@@ -13,11 +13,10 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapImageView: UIImageView!
     
     @IBAction func mapTapped(_ sender: UITapGestureRecognizer) {
-        let ward = UIImage(named: "observer_ward")!
+        let wardView = Bundle.main.loadNibNamed("WardView", owner: self, options: nil)![0] as! UIView
         let touchPoint = sender.location(in: mapImageView)
-        let wardImageView = UIImageView(image: ward)
-        wardImageView.center = touchPoint
-        mapImageView.addSubview(wardImageView)
+        wardView.center = touchPoint
+        mapImageView.addSubview(wardView)
     }
 }
 
