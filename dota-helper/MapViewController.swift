@@ -10,10 +10,14 @@ import UIKit
 
 class MapViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var mapImageView: UIImageView!
+    
+    @IBAction func mapTapped(_ sender: UITapGestureRecognizer) {
+        let ward = UIImage(named: "observer_ward")!
+        let touchPoint = sender.location(in: mapImageView)
+        let imageView = UIImageView(image: ward)
+        imageView.center = touchPoint
+        mapImageView.addSubview(imageView)
     }
-
 }
 
