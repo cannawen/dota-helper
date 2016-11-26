@@ -13,10 +13,15 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapImageView: UIImageView!
     
     @IBAction func mapTapped(_ sender: UITapGestureRecognizer) {
-        let wardView = WardView.loadFromNib()
+        let wardView = WardView.loadFromNib(delegate: self)
         let touchPoint = sender.location(in: mapImageView)
         wardView.center = touchPoint
         mapImageView.addSubview(wardView)
     }
 }
 
+extension MapViewController: WardViewDelegate {
+    func wardExpired(wardView: WardView) {
+        wardView.removeFromSuperview()
+    }
+}
