@@ -16,20 +16,23 @@ class WardView: UIView {
 
     @IBOutlet weak var countdownLabel: UILabel!
     
-    var secondsRemaining : TimeInterval = 6
+    var secondsRemaining : TimeInterval = 6 * 60
     var timer : Timer!
     var dateFormatter = DateFormatter()
     var delegate : WardViewDelegate!
     
-    static func loadFromNib(delegate: WardViewDelegate) -> WardView {
+    static func newFromNib(delegate: WardViewDelegate, type: WardType) -> WardView {
         let wardView = Bundle.main.loadNibNamed("WardView", owner: self, options: nil)![0] as! WardView
-        wardView.delegate = delegate
-        wardView.dateFormatter.dateFormat = "m:ss"
-        wardView.dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        wardView.timer = Timer.scheduledTimer(timeInterval: 1.0, target: wardView, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        wardView.setup(delegate: delegate)
         return wardView
     }
     
+    func setup(delegate: WardViewDelegate) {
+        self.delegate = delegate
+        self.dateFormatter.dateFormat = "m:ss"
+        self.dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
     
     func updateCounter() {
         secondsRemaining -= 1;
