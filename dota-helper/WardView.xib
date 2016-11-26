@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WardView" customModule="dota_helper" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="44" height="42"/>
+            <rect key="frame" x="0.0" y="0.0" width="44" height="52"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" verticalCompressionResistancePriority="760" text="6:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvg-zO-NcZ">
@@ -23,26 +23,34 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="observer_ward" translatesAutoresizingMaskIntoConstraints="NO" id="CNW-GT-R9o">
-                    <rect key="frame" x="0.0" y="20.5" width="44" height="21.5"/>
+                    <rect key="frame" x="0.0" y="21" width="44" height="11"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
+                <view contentMode="scaleToFill" verticalCompressionResistancePriority="760" translatesAutoresizingMaskIntoConstraints="NO" id="FtS-Yd-6z1" userLabel="Spacer View">
+                    <rect key="frame" x="0.0" y="32" width="44" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="FtS-Yd-6z1" firstAttribute="height" secondItem="rvg-zO-NcZ" secondAttribute="height" id="ApN-4X-8oV"/>
                 <constraint firstItem="rvg-zO-NcZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FYJ-DS-V8S"/>
+                <constraint firstItem="FtS-Yd-6z1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="J1x-TZ-pXd"/>
+                <constraint firstAttribute="bottom" secondItem="FtS-Yd-6z1" secondAttribute="bottom" id="KXu-RI-7eN"/>
                 <constraint firstItem="CNW-GT-R9o" firstAttribute="top" secondItem="rvg-zO-NcZ" secondAttribute="bottom" id="L1j-03-bOD"/>
+                <constraint firstAttribute="trailing" secondItem="FtS-Yd-6z1" secondAttribute="trailing" id="RZq-4h-5fb"/>
                 <constraint firstAttribute="trailing" secondItem="CNW-GT-R9o" secondAttribute="trailing" id="ckS-3o-TZx"/>
                 <constraint firstItem="rvg-zO-NcZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fUo-Bl-FsM"/>
                 <constraint firstItem="CNW-GT-R9o" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iqX-WB-2gL"/>
+                <constraint firstItem="FtS-Yd-6z1" firstAttribute="top" secondItem="CNW-GT-R9o" secondAttribute="bottom" id="mHu-il-G6c"/>
                 <constraint firstAttribute="trailing" secondItem="rvg-zO-NcZ" secondAttribute="trailing" id="vYz-v7-k8q"/>
-                <constraint firstAttribute="bottom" secondItem="CNW-GT-R9o" secondAttribute="bottom" id="z6n-mh-e0I"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="countdownLabel" destination="rvg-zO-NcZ" id="nRI-Dw-KoT"/>
             </connections>
-            <point key="canvasLocation" x="-133" y="-116"/>
+            <point key="canvasLocation" x="-133" y="-111"/>
         </view>
     </objects>
     <resources>
