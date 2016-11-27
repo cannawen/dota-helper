@@ -48,6 +48,8 @@ private extension WardType {
         switch self {
         case .observer:
             return UIImage(named: .observerWard)
+        case .demo:
+            return UIImage(named: .observerWard)
         case .sentry:
             return UIImage(named: .sentryWard)
         }

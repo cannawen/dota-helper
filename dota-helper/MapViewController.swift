@@ -12,6 +12,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapImageView: UIImageView!
     @IBOutlet var singleTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet var tripleTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var togglePauseButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
@@ -20,6 +21,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         singleTapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
+        singleTapGestureRecognizer.require(toFail: tripleTapGestureRecognizer)
+        doubleTapGestureRecognizer.require(toFail: tripleTapGestureRecognizer)
         gameState.startGame(renderer: self)
     }
     
@@ -29,6 +32,10 @@ class MapViewController: UIViewController {
     
     @IBAction func mapDoubleTapped(_ sender: UITapGestureRecognizer) {
         gameState.addWard(type: .sentry, location: sender.location(in: mapImageView))
+    }
+    
+    @IBAction func mapTripleTapped(_ sender: UITapGestureRecognizer) {
+        gameState.addWard(type: .demo, location: sender.location(in: mapImageView))
     }
     
     @IBAction func togglePauseState() {

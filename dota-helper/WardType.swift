@@ -11,6 +11,7 @@ import Foundation
 enum WardType {
     case observer
     case sentry
+    case demo
     
     func lifespan() -> TimeInterval {
         switch self {
@@ -18,6 +19,8 @@ enum WardType {
             return 6.minutes()
         case .sentry:
             return 4.minutes()
+        case .demo:
+            return 15
         }
     }
 }

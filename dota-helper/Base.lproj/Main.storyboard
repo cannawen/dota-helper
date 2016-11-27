@@ -68,6 +68,7 @@
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="uuG-m7-tTu" appends="YES" id="jtd-O6-Vg9"/>
                                     <outletCollection property="gestureRecognizers" destination="lfI-nF-XUj" appends="YES" id="q9L-yh-PQn"/>
+                                    <outletCollection property="gestureRecognizers" destination="8ba-2l-ftu" appends="YES" id="5N0-Fv-tKZ"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -88,6 +89,7 @@
                         <outlet property="resetButton" destination="Xgg-43-hxw" id="5cN-nC-ovo"/>
                         <outlet property="singleTapGestureRecognizer" destination="uuG-m7-tTu" id="3pP-dx-leG"/>
                         <outlet property="togglePauseButton" destination="yAr-Na-lEJ" id="iuF-DK-o10"/>
+                        <outlet property="tripleTapGestureRecognizer" destination="8ba-2l-ftu" id="0uV-oZ-oLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,6 +101,11 @@
                 <tapGestureRecognizer numberOfTapsRequired="2" id="lfI-nF-XUj" userLabel="Double Tap Gesture Recognizer">
                     <connections>
                         <action selector="mapDoubleTapped:" destination="BYZ-38-t0r" id="Twg-kf-wiK"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="3" id="8ba-2l-ftu">
+                    <connections>
+                        <action selector="mapTripleTapped:" destination="BYZ-38-t0r" id="HTp-3E-Snc"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
