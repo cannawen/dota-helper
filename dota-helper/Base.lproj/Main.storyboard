@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,11 +18,34 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minimap" translatesAutoresizingMaskIntoConstraints="NO" id="Jdg-eb-8hT">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="740" translatesAutoresizingMaskIntoConstraints="NO" id="aXI-io-dQu" userLabel="Control Container">
+                                <rect key="frame" x="0.0" y="20" width="168" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="740" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAr-Na-lEJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="168" height="300"/>
+                                        <color key="backgroundColor" red="1" green="0.15052940949999999" blue="0.2489995096" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                        <state key="normal" title="Pause">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="togglePauseState" destination="BYZ-38-t0r" eventType="touchUpInside" id="cuf-uV-61B"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yAr-Na-lEJ" secondAttribute="bottom" id="91y-ab-SuK"/>
+                                    <constraint firstAttribute="trailing" secondItem="yAr-Na-lEJ" secondAttribute="trailing" id="Y4K-BU-iGn"/>
+                                    <constraint firstItem="yAr-Na-lEJ" firstAttribute="top" secondItem="aXI-io-dQu" secondAttribute="top" id="djF-DT-Qk8"/>
+                                    <constraint firstItem="yAr-Na-lEJ" firstAttribute="leading" secondItem="aXI-io-dQu" secondAttribute="leading" id="wWQ-g4-fko"/>
+                                </constraints>
+                            </view>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="900" image="minimap" translatesAutoresizingMaskIntoConstraints="NO" id="Jdg-eb-8hT">
+                                <rect key="frame" x="168" y="20" width="400" height="300"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="uuG-m7-tTu" appends="YES" id="jtd-O6-Vg9"/>
@@ -32,16 +55,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Jdg-eb-8hT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4XB-YH-Z3Q"/>
                             <constraint firstItem="Jdg-eb-8hT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4v5-jg-B5E"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jdg-eb-8hT" secondAttribute="bottom" id="UqU-fm-FGq"/>
                             <constraint firstAttribute="trailing" secondItem="Jdg-eb-8hT" secondAttribute="trailing" id="V2m-JU-fGi"/>
+                            <constraint firstItem="Jdg-eb-8hT" firstAttribute="leading" secondItem="aXI-io-dQu" secondAttribute="trailing" id="nnO-c5-jYc"/>
+                            <constraint firstItem="aXI-io-dQu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oui-Gs-3kc"/>
+                            <constraint firstItem="aXI-io-dQu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="szT-7j-Pg1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aXI-io-dQu" secondAttribute="bottom" id="ubj-1Z-HUj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="doubleTapGestureRecognizer" destination="lfI-nF-XUj" id="Xvf-cH-sw0"/>
                         <outlet property="mapImageView" destination="Jdg-eb-8hT" id="mJf-st-wgs"/>
                         <outlet property="singleTapGestureRecognizer" destination="uuG-m7-tTu" id="3pP-dx-leG"/>
+                        <outlet property="togglePauseButton" destination="yAr-Na-lEJ" id="iuF-DK-o10"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,6 +83,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="35.532233883058474" y="63.200000000000003"/>
         </scene>
     </scenes>
     <resources>

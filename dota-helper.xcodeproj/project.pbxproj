@@ -10,6 +10,7 @@
 		B0DDB01E1DEA34B10068C4F8 /* WardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDB01D1DEA34B10068C4F8 /* WardType.swift */; };
 		B0DDB0231DEA3DF60068C4F8 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDB0221DEA3DF60068C4F8 /* GameState.swift */; };
 		B0DDB0251DEA3E6F0068C4F8 /* Ward.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDB0241DEA3E6F0068C4F8 /* Ward.swift */; };
+		B0DDB0271DEA6CEC0068C4F8 /* PauseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DDB0261DEA6CEC0068C4F8 /* PauseState.swift */; };
 		B0E4D8311DEA0653005C80FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4D8301DEA0653005C80FE /* AppDelegate.swift */; };
 		B0E4D8331DEA0653005C80FE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E4D8321DEA0653005C80FE /* MapViewController.swift */; };
 		B0E4D8361DEA0654005C80FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E4D8341DEA0654005C80FE /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		B0DDB01D1DEA34B10068C4F8 /* WardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardType.swift; sourceTree = "<group>"; };
 		B0DDB0221DEA3DF60068C4F8 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		B0DDB0241DEA3E6F0068C4F8 /* Ward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ward.swift; sourceTree = "<group>"; };
+		B0DDB0261DEA6CEC0068C4F8 /* PauseState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseState.swift; sourceTree = "<group>"; };
 		B0E4D82D1DEA0653005C80FE /* dota-helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dota-helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E4D8301DEA0653005C80FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E4D8321DEA0653005C80FE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				B0DDB0221DEA3DF60068C4F8 /* GameState.swift */,
 				B0DDB0241DEA3E6F0068C4F8 /* Ward.swift */,
 				B0DDB01D1DEA34B10068C4F8 /* WardType.swift */,
+				B0DDB0261DEA6CEC0068C4F8 /* PauseState.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				B0E4D8311DEA0653005C80FE /* AppDelegate.swift in Sources */,
 				B0E4D8531DEA0CF6005C80FE /* ImageExtension.swift in Sources */,
 				B0DDB01E1DEA34B10068C4F8 /* WardType.swift in Sources */,
+				B0DDB0271DEA6CEC0068C4F8 /* PauseState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

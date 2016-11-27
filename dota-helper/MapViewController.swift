@@ -9,38 +9,70 @@
 import UIKit
 
 class MapViewController: UIViewController {
-
     @IBOutlet weak var mapImageView: UIImageView!
     @IBOutlet var singleTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var togglePauseButton: UIButton!
     
     let gameState = GameState()
-    var timer : Timer!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         singleTapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateGameState), userInfo: nil, repeats: true)
-    }
-    
-    func updateGameState() {
-        gameState.advanceTime()
-        redrawGameState()
+        gameState.startGame(renderer: self)
     }
     
     @IBAction func mapTapped(_ sender: UITapGestureRecognizer) {
         gameState.addWard(type: .observer, location: sender.location(in: mapImageView))
-        redrawGameState()
     }
     
     @IBAction func mapDoubleTapped(_ sender: UITapGestureRecognizer) {
         gameState.addWard(type: .sentry, location: sender.location(in: mapImageView))
-        redrawGameState()
     }
     
-    private func redrawGameState() {
-        mapImageView.subviews.forEach { $0.removeFromSuperview() }
+    @IBAction func togglePauseState() {
+        gameState.togglePauseState()
+    }
+}
+
+extension MapViewController: GameRenderer {
+    func render(gameState: GameState) {
+        mapImageView.render(gameState: gameState)
+        togglePauseButton.render(gameState: gameState)
+    }
+}
+
+private extension UIImageView {
+    func render(gameState: GameState) {
+        subviews.forEach { $0.removeFromSuperview() }
         let wardViews = gameState.wards.map { WardView.new(ward: $0, currentTime: gameState.currentTime) }
-        wardViews.forEach { mapImageView.addSubview($0) }
+        wardViews.forEach { addSubview($0) }
+    }
+}
+
+private extension UIButton {
+    func render(gameState: GameState) {
+        setTitle(gameState.pauseState.buttonTitle(), for: .normal)
+        backgroundColor = gameState.pauseState.buttonColor()
+    }
+}
+
+private extension PauseState {
+    func buttonTitle() -> String {
+        switch self {
+        case .paused:
+            return "Resume"
+        case .inProgress:
+            return "Pause"
+        }
+    }
+    
+    func buttonColor() -> UIColor {
+        switch self {
+        case .paused:
+            return .green
+        case .inProgress:
+            return .red
+        }
     }
 }

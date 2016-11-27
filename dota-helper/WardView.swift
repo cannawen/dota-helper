@@ -29,7 +29,7 @@ class WardView: UIView {
         }
         
         center = ward.location
-        wardImageView.image = UIImage(named: ward.type.imageName())
+        wardImageView.image = ward.type.image()
         countdownLabel.text = timeRemainingString()
         
         return self
@@ -40,5 +40,16 @@ private extension Ward {
     func timeRemaining(currentTime: TimeInterval) -> TimeInterval {
         let age = currentTime - creationTime
         return type.lifespan() - age
+    }
+}
+
+private extension WardType {
+    func image() -> UIImage {
+        switch self {
+        case .observer:
+            return UIImage(named: .observerWard)
+        case .sentry:
+            return UIImage(named: .sentryWard)
+        }
     }
 }

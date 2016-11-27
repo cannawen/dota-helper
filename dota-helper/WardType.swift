@@ -20,15 +20,6 @@ enum WardType {
             return 4.minutes()
         }
     }
-    
-    func imageName() -> ImageName {
-        switch self {
-        case .observer:
-            return .observerWard
-        case .sentry:
-            return .sentryWard
-        }
-    }
 }
 
 extension TimeInterval {
