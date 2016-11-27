@@ -52,26 +52,24 @@ private extension UIImageView {
 
 private extension UIButton {
     func render(gameState: GameState) {
-        setTitle(gameState.pauseState.buttonTitle(), for: .normal)
-        backgroundColor = gameState.pauseState.buttonColor()
+        setTitle(gameState.pauseButtonTitle(), for: .normal)
+        backgroundColor = gameState.pauseButtonColor()
     }
 }
 
-private extension PauseState {
-    func buttonTitle() -> String {
-        switch self {
-        case .paused:
+private extension GameState {
+    func pauseButtonTitle() -> String {
+        if paused {
             return "Resume"
-        case .inProgress:
+        } else {
             return "Pause"
         }
     }
     
-    func buttonColor() -> UIColor {
-        switch self {
-        case .paused:
+    func pauseButtonColor() -> UIColor {
+        if paused {
             return .green
-        case .inProgress:
+        } else {
             return .red
         }
     }

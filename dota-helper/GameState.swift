@@ -15,7 +15,7 @@ protocol GameRenderer {
 class GameState {
     private(set) public var wards: Array<Ward> = []
     private(set) public var currentTime: TimeInterval = 0
-    private(set) public var pauseState: PauseState = .paused
+    private(set) public var paused: Bool = true
 
     private var timer: Timer!
     private var renderer: GameRenderer!
@@ -23,7 +23,7 @@ class GameState {
     public func startGame(renderer: GameRenderer) {
         wards = []
         currentTime = 0
-        pauseState = .inProgress
+        paused = false
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
         self.renderer = renderer
         renderer.render(gameState: self)
@@ -35,7 +35,7 @@ class GameState {
     }
     
     @objc public func tick() {
-        guard pauseState == .inProgress else {
+        guard !paused else {
             return
         }
         
@@ -49,7 +49,7 @@ class GameState {
     }
     
     public func togglePauseState() {
-        pauseState = pauseState.toggle()
+        paused = !paused
         renderer.render(gameState: self)
     }
 }
@@ -58,16 +58,5 @@ private extension Ward {
     func isValid(currentTime: TimeInterval) -> Bool {
         let age = currentTime - creationTime
         return age <= type.lifespan();
-    }
-}
-
-private extension PauseState {
-    func toggle() -> PauseState {
-        switch self {
-        case .paused:
-            return .inProgress
-        case .inProgress:
-            return .paused
-        }
     }
 }
