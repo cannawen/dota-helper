@@ -25,8 +25,8 @@ class GameState {
         currentTime = 0
         paused = false
         
-        if self.timer == nil {
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
         }
         
         self.renderer = renderer
