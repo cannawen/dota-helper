@@ -22,32 +22,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="740" translatesAutoresizingMaskIntoConstraints="NO" id="aXI-io-dQu" userLabel="Control Container">
-                                <rect key="frame" x="0.0" y="20" width="100" height="300"/>
+                                <rect key="frame" x="0.0" y="20" width="200" height="300"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAr-Na-lEJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgg-43-hxw">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="300"/>
-                                        <color key="backgroundColor" red="1" green="0.15052940949999999" blue="0.2489995096" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.11739572137594223" green="0.25896897912025452" blue="0.060607060790061951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="50"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="A">
+                                        <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="togglePauseState" destination="BYZ-38-t0r" eventType="touchUpInside" id="cuf-uV-61B"/>
+                                            <action selector="resetButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="OP2-hM-Nmf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAr-Na-lEJ">
+                                        <rect key="frame" x="100" y="0.0" width="100" height="300"/>
+                                        <color key="backgroundColor" red="1" green="0.15052940949999999" blue="0.2489995096" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="50"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pauseToggleTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="kq0-mi-E9r"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="yAr-Na-lEJ" secondAttribute="bottom" id="91y-ab-SuK"/>
+                                    <constraint firstItem="Xgg-43-hxw" firstAttribute="top" secondItem="aXI-io-dQu" secondAttribute="top" id="GG7-50-QvY"/>
                                     <constraint firstAttribute="trailing" secondItem="yAr-Na-lEJ" secondAttribute="trailing" id="Y4K-BU-iGn"/>
                                     <constraint firstItem="yAr-Na-lEJ" firstAttribute="top" secondItem="aXI-io-dQu" secondAttribute="top" id="djF-DT-Qk8"/>
-                                    <constraint firstAttribute="width" constant="100" id="hsY-Jo-vI0"/>
-                                    <constraint firstItem="yAr-Na-lEJ" firstAttribute="leading" secondItem="aXI-io-dQu" secondAttribute="leading" id="wWQ-g4-fko"/>
+                                    <constraint firstItem="Xgg-43-hxw" firstAttribute="leading" secondItem="aXI-io-dQu" secondAttribute="leading" id="eaa-ze-1N3"/>
+                                    <constraint firstAttribute="width" constant="200" id="hsY-Jo-vI0"/>
+                                    <constraint firstItem="Xgg-43-hxw" firstAttribute="trailing" secondItem="yAr-Na-lEJ" secondAttribute="leading" id="lwz-vj-E8Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xgg-43-hxw" secondAttribute="bottom" id="uGm-Jt-Tod"/>
+                                    <constraint firstItem="Xgg-43-hxw" firstAttribute="width" secondItem="yAr-Na-lEJ" secondAttribute="width" id="ugT-Py-2oL"/>
                                 </constraints>
                             </view>
                             <imageView contentMode="scaleAspectFit" image="minimap" translatesAutoresizingMaskIntoConstraints="NO" id="Jdg-eb-8hT">
-                                <rect key="frame" x="100" y="20" width="468" height="300"/>
+                                <rect key="frame" x="200" y="20" width="368" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -70,6 +85,7 @@
                     <connections>
                         <outlet property="doubleTapGestureRecognizer" destination="lfI-nF-XUj" id="Xvf-cH-sw0"/>
                         <outlet property="mapImageView" destination="Jdg-eb-8hT" id="mJf-st-wgs"/>
+                        <outlet property="resetButton" destination="Xgg-43-hxw" id="5cN-nC-ovo"/>
                         <outlet property="singleTapGestureRecognizer" destination="uuG-m7-tTu" id="3pP-dx-leG"/>
                         <outlet property="togglePauseButton" destination="yAr-Na-lEJ" id="iuF-DK-o10"/>
                     </connections>

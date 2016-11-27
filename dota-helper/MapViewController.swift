@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
     @IBOutlet var singleTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var togglePauseButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
     
     let gameState = GameState()
     
@@ -33,12 +34,21 @@ class MapViewController: UIViewController {
     @IBAction func togglePauseState() {
         gameState.togglePauseState()
     }
+    
+    @IBAction func pauseToggleTapped() {
+        gameState.togglePauseState()
+    }
+    
+    @IBAction func resetButtonTapped() {
+        gameState.reset()
+    }
 }
 
 extension MapViewController: GameRenderer {
     func render(gameState: GameState) {
         mapImageView.render(gameState: gameState)
-        togglePauseButton.render(gameState: gameState)
+        togglePauseButton.renderPauseButton(gameState: gameState)
+        resetButton.renderResetButton()
     }
 }
 
@@ -51,10 +61,15 @@ private extension UIImageView {
 }
 
 private extension UIButton {
-    func render(gameState: GameState) {
+    func renderPauseButton(gameState: GameState) {
         titleLabel?.numberOfLines = 0
         setTitle(gameState.pauseButtonTitle(), for: .normal)
         backgroundColor = gameState.pauseButtonColor()
+    }
+    
+    func renderResetButton() {
+        titleLabel?.numberOfLines = 0
+        setTitle("RESET".addEndlines(), for: .normal)
     }
 }
 

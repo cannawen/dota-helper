@@ -21,11 +21,15 @@ class GameState {
     private var renderer: GameRenderer!
     
     public func startGame(renderer: GameRenderer) {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        self.renderer = renderer
+        reset()
+    }
+    
+    public func reset() {
         wards = []
         currentTime = 0
         paused = false
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
-        self.renderer = renderer
         renderer.render(gameState: self)
     }
     
