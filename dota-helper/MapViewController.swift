@@ -20,7 +20,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         singleTapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
-        gameState.startGame(renderer: self)
+        gameState.resetGame(renderer: self)
     }
     
     @IBAction func mapTapped(_ sender: UITapGestureRecognizer) {
@@ -31,16 +31,12 @@ class MapViewController: UIViewController {
         gameState.addWard(type: .sentry, location: sender.location(in: mapImageView))
     }
     
-    @IBAction func togglePauseState() {
-        gameState.togglePauseState()
-    }
-    
     @IBAction func pauseToggleTapped() {
         gameState.togglePauseState()
     }
     
     @IBAction func resetButtonTapped() {
-        gameState.reset()
+        gameState.resetGame(renderer: self)
     }
 }
 
@@ -75,7 +71,7 @@ private extension UIButton {
 
 private extension GameState {
     func pauseButtonTitle() -> String {
-        if paused {
+        if paused == true {
             return "RESUME".addEndlines()
         } else {
             return "PAUSE".addEndlines()
@@ -83,7 +79,7 @@ private extension GameState {
     }
     
     func pauseButtonColor() -> UIColor {
-        if paused {
+        if paused == true {
             return .green
         } else {
             return .red

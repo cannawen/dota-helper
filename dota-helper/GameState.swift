@@ -13,23 +13,23 @@ protocol GameRenderer {
 }
 
 class GameState {
-    private(set) public var wards: Array<Ward> = []
-    private(set) public var currentTime: TimeInterval = 0
-    private(set) public var paused: Bool = true
+    private(set) public var wards: Array<Ward>!
+    private(set) public var currentTime: TimeInterval!
+    private(set) public var paused: Bool!
 
-    private var timer: Timer!
+    private var timer: Timer?
     private var renderer: GameRenderer!
     
-    public func startGame(renderer: GameRenderer) {
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
-        self.renderer = renderer
-        reset()
-    }
-    
-    public func reset() {
+    public func resetGame(renderer: GameRenderer) {
         wards = []
         currentTime = 0
         paused = false
+        
+        if self.timer == nil {
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        }
+        
+        self.renderer = renderer
         renderer.render(gameState: self)
     }
     
@@ -38,7 +38,12 @@ class GameState {
         renderer.render(gameState: self)
     }
     
-    @objc public func tick() {
+    public func togglePauseState() {
+        paused = !paused
+        renderer.render(gameState: self)
+    }
+    
+    @objc private func tick() {
         guard !paused else {
             return
         }
@@ -49,11 +54,6 @@ class GameState {
         
         currentTime = currentTime + 1
         removeExpiredWards()
-        renderer.render(gameState: self)
-    }
-    
-    public func togglePauseState() {
-        paused = !paused
         renderer.render(gameState: self)
     }
 }

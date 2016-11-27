@@ -8,13 +8,12 @@
 
 import UIKit
 
-
 class WardView: UIView {
 
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var wardImageView: UIImageView!
     
-    static func new(ward: Ward, currentTime: TimeInterval) -> WardView {
+    public static func new(ward: Ward, currentTime: TimeInterval) -> WardView {
         let wardView = Bundle.main.loadNibNamed("WardView", owner: self, options: nil)![0] as! WardView
         return wardView.setup(ward: ward, currentTime: currentTime);
     }

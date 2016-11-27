@@ -15,14 +15,14 @@
             <rect key="frame" x="0.0" y="0.0" width="44" height="52"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" verticalCompressionResistancePriority="760" text="6:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvg-zO-NcZ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="240" verticalCompressionResistancePriority="760" text="6:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvg-zO-NcZ">
                     <rect key="frame" x="0.0" y="0.0" width="44" height="17"/>
                     <color key="backgroundColor" white="1" alpha="0.74895634541984735" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="observer_ward" translatesAutoresizingMaskIntoConstraints="NO" id="CNW-GT-R9o">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="observer_ward" translatesAutoresizingMaskIntoConstraints="NO" id="CNW-GT-R9o">
                     <rect key="frame" x="0.0" y="17.5" width="44" height="18"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
