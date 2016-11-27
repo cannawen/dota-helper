@@ -52,6 +52,7 @@ private extension UIImageView {
 
 private extension UIButton {
     func render(gameState: GameState) {
+        titleLabel?.numberOfLines = 0
         setTitle(gameState.pauseButtonTitle(), for: .normal)
         backgroundColor = gameState.pauseButtonColor()
     }
@@ -60,9 +61,9 @@ private extension UIButton {
 private extension GameState {
     func pauseButtonTitle() -> String {
         if paused {
-            return "Resume"
+            return "RESUME".addEndlines()
         } else {
-            return "Pause"
+            return "PAUSE".addEndlines()
         }
     }
     
@@ -72,5 +73,12 @@ private extension GameState {
         } else {
             return .red
         }
+    }
+}
+
+private extension String {
+    func addEndlines() -> String {
+        let stringArray = self.characters.map { String($0) }
+        return stringArray.joined(separator: "\n")
     }
 }
